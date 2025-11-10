@@ -255,9 +255,8 @@ $versaoVigente  = $versoesModel->where('vigente', '1')->first();
                     return;
                 }
 
-                // ============================
                 // 1. DEFINIR AGRUPAMENTO
-                // ============================
+
 
                 let agrupamento = "none";
 
@@ -267,9 +266,8 @@ $versaoVigente  = $versoesModel->where('vigente', '1')->first();
                     agrupamento = "none"; // todos os outros → 1 carrossel único
                 }
 
-                // ============================
                 // 2. AGRUPAR OS DADOS
-                // ============================
+
 
                 let grupos = {};
 
@@ -286,9 +284,8 @@ $versaoVigente  = $versoesModel->where('vigente', '1')->first();
                     grupos["unico"] = data;
                 }
 
-                // ============================
                 // 3. GERAR OS CARROSSEIS
-                // ============================
+
 
                 Object.keys(grupos).forEach((grupoKey, index) => {
 
@@ -330,9 +327,8 @@ $versaoVigente  = $versoesModel->where('vigente', '1')->first();
                                     <div class="carousel-inner">
                     `;
 
-                    // =====================================
                     // 4. GERAR 5 SLIDES (SEG → SEX)
-                    // =====================================
+
 
                     const diasSemana = {
                         1: "Segunda",
@@ -432,6 +428,7 @@ $versaoVigente  = $versoesModel->where('vigente', '1')->first();
                     resultadosContainer.append(blocoHTML);
                 });
             }
+
             $('#resultadosContainer').on('click', '#btn-voltar-filtro', function() {
                 const tab = new bootstrap.Tab(document.querySelector('#tab-filtros'));
                 tab.show();

@@ -128,3 +128,9 @@ nb-configuration.xml
 
 /.php-cs-fixer.php
 .qodo
+writable/logs/log-2025-11-10.log
+writable/debugbar/debugbar_1762800886.624212.json
+writable/debugbar/debugbar_1762800940.539763.json
+/writable/debugbar
+/writable/logs
+env
