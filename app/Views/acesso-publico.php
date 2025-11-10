@@ -108,7 +108,7 @@ $versaoVigente  = $versoesModel->where('vigente', '1')->first();
                                                         </select>
                                                     </div>
                                                 </div>
-                                                                
+
                                                 <div class="col-md-3">
                                                     <div class="form-group">
                                                         <label for="filtroAmbiente">Ambiente</label>
@@ -146,7 +146,7 @@ $versaoVigente  = $versoesModel->where('vigente', '1')->first();
                                         <h4 id="tile_resultados" class="card-title">Resultados</h4>
                                     </div>
                                     <div class="col-auto">
-                                        <button type="button" class="btn btn-primary me-2 mb-4">Voltar para filtros</button>
+                                        <button id="btn-voltar-filtro" type="button" class="btn btn-primary me-2 mb-4">Voltar para filtros</button>
                                     </div>
                                 </div>
                                 <div class="card bg-dark text-white">
@@ -161,7 +161,7 @@ $versaoVigente  = $versoesModel->where('vigente', '1')->first();
                                     <button class="carousel-control-prev" type="button" data-bs-target="#carousel_horarios" data-bs-slide="prev">
                                         <span class="carousel-control-prev-icon"></span>
                                     </button>
-                                    <button class="carousel-control-next"  type="button" data-bs-target="#carousel_horarios" data-bs-slide="next">
+                                    <button class="carousel-control-next" type="button" data-bs-target="#carousel_horarios" data-bs-slide="next">
                                         <span class="carousel-control-next-icon"></span>
                                     </button>
                                 </div>
@@ -262,9 +262,9 @@ $versaoVigente  = $versoesModel->where('vigente', '1')->first();
                 let agrupamento = "none";
 
                 if (tipoFiltro === "curso" && (!filtro.turmas || filtro.turmas.length === 0)) {
-                    agrupamento = "turma";               // caso: curso SEM turma → 1 carrossel por turma
+                    agrupamento = "turma"; // caso: curso SEM turma → 1 carrossel por turma
                 } else {
-                    agrupamento = "none";                // todos os outros → 1 carrossel único
+                    agrupamento = "none"; // todos os outros → 1 carrossel único
                 }
 
                 // ============================
@@ -300,7 +300,7 @@ $versaoVigente  = $versoesModel->where('vigente', '1')->first();
                     let tituloCarrossel = '';
 
                     if (tipoFiltro === "professor") tituloCarrossel = "Professor: " + dadosGrupo[0].professor;
-                    if (tipoFiltro === "ambiente")  tituloCarrossel = "Ambiente: " + dadosGrupo[0].ambiente;
+                    if (tipoFiltro === "ambiente") tituloCarrossel = "Ambiente: " + dadosGrupo[0].ambiente;
 
                     if (tipoFiltro === "curso") {
                         if (agrupamento === "turma") {
@@ -432,6 +432,10 @@ $versaoVigente  = $versoesModel->where('vigente', '1')->first();
                     resultadosContainer.append(blocoHTML);
                 });
             }
+            $('#resultadosContainer').on('click', '#btn-voltar-filtro', function() {
+                const tab = new bootstrap.Tab(document.querySelector('#tab-filtros'));
+                tab.show();
+            });
 
 
             $('#btnFiltrar').on('click', function() {
